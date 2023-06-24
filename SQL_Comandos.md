@@ -1,5 +1,8 @@
 # Comandos SQL
 
+**Estrutura de SQL:**
+<img src="Imagens/SQL.jpeg" alt="Estrutura de SQL" width="500"/>
+
 ## Comandos para criar tabelas e se conectar com banco de dados:
 ```sql
 CREATE DATABASE nome_do_banco_de_dados;     --MySQL: criando banco de dados
