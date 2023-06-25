@@ -72,7 +72,7 @@
 ### DCL
 > Linguagem de COntrole de Dados. DCL controla os aspectos de autorização de dados e licenças de usuários para controlar que tem acesso ara ver ou manipular dados dentro do banco de dados.
 - GRANT: autoriza o usuário a executar ou definir operações;
-- REVOKE: remove ou restringe a capacidade de um usuário de executar operações.
+- REVOKE: remove ou restringe a capacidade de um usuário de executar operações
 
 ## Índices
 > São estruturas de acesso auxiliares utilizadas para agilizar a recuperação de registros em respostas a certas condições de pesquisa. Eles permitem o acesso eficiente aos registros com base nos campos de indexação.
