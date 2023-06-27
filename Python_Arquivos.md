@@ -3,12 +3,17 @@
 ## Abrindo arquivos
 
 ```py
-my_file = open('arquivo_texto.txt', 'r')              # read = read
+my_file = open('arquivo_texto.txt', 'r')              # r = read | w = write | a = append
 file_content = my_file.read()
 
 my_file.close()
 
 print(file_content)
+
+# Melhor usar:
+with open('palavras.txt') as arquivo:
+    for linha in arquivo:
+        print(linha)
 ```
 
 ## Escrevendo
@@ -16,8 +21,12 @@ print(file_content)
 ```py
 user_name = input('Enter your name: ')
 my_file_writing = open('arquivo_texto.txt', 'w')    # substitui o que está no arquivo e abre para novo conteúdo
-my_file_writing.write(user_name)                    # adiciona o  conteúdo do input no arquivo
+my_file_writing.write(user_name)                    # adiciona o conteúdo do input no arquivo
+my_file_writing.close()
 
+
+my_file_writing = open('arquivo_texto.txt', 'a')    # adiciona informações no arquivo
+my_file_writing.write("user_name\n")                # escreve user_name no arquivo e pula para a próxima linha depois de escrever
 my_file_writing.close()
 ```
 

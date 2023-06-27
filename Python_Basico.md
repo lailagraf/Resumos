@@ -199,7 +199,7 @@ print(tupla)
 ```
 
 ## Conjuntos {}
-Conjuntos não mantém a ordem e não contém elementos duplicados, é mais usado para comparar elementos e fazer operações entre dois conjuntos
+Conjuntos não mantém a ordem e não contém elementos duplicados, é mais usado para comparar elementos e fazer operações entre dois conjuntos. Não possui índice.
 ```py
 conjunto = {"item1", "item2", "item3"}
 conjunto.add("Item4")                               #Adiciona um item em um conjunto em qualquer ordem
