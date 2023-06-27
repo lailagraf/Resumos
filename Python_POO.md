@@ -10,7 +10,7 @@
 
 ## Classes
 Modelos dos objetos do mundo real sendo representados computacionalmente.
-Classes tem iniciais em maíuscula por convenção. Se for nome composto utilizar ambas as iniciais em maiúsculas sem traço ou underline.
+Classes tem iniciais em maiúscula por convenção. Se for nome composto utilizar ambas as iniciais em maiúsculas sem traço ou underline.
 
 Classes podem conter:
 - Atributos > representam as características do objeto. Ou seja, pelos atributos conseguimos representar computacionalmente os estado de um objeto. (Cor, marca, voltagem, etc)
@@ -32,18 +32,25 @@ Podem ser divididos em 3 grupos:
 - Atributos Dinâmicos.
 
 ### Atributos de Instância
-São atributos declarados dentro do método contrutor. 
-(Método contrutor é um método especial utilizado para a contrução do objeto)
-Aos criamos instãncias/objetos de uma classe, todas as instâncias terão esses atributos.
+São atributos declarados dentro do método construtor. 
+(Método construtor é um método especial utilizado para a construção do objeto)
+Aos criamos instâncias/objetos de uma classe, todas as instâncias terão esses atributos.
+Self >> Referência do objeto (localização).
 
 ```py
 class Lampada:
 
     def __init__ (self, voltagem, cor):          # __init__ método construtor
-        self.voltagem = voltagem                 # crição de atributos públicos
+        self.voltagem = voltagem                 # criação de atributos públicos
         self.cor = cor
         self.ligada = False
 
+class Lampada:
+
+    def __init__ (self, voltagem, cor = branca): # Declara um valor padrão para o atributo cor que pode ser alterado
+        self.voltagem = voltagem                
+        self.cor = cor
+        self.ligada = False
 
 class ContaCorrente:
     
@@ -98,7 +105,7 @@ print(p1.id)
 ### Atributos Dinâmicos
 Atributo de instância que pode ser criado em tempo de execução. Será exclusivo da instância que o criou.
 
-Adicionando atributo dinâmicamente:
+Adicionando atributo dinamicamente:
 ```py
 class Produto:
 
@@ -123,7 +130,7 @@ Mostrando as propriedades dos objetos:
 print(p1.__dict__)
 print(p2.__dict__)
 ```
-Deletando atributos dinâmicamente:
+Deletando atributos dinamicamente:
 ```py
 del p2.peso
 del p2.valor
