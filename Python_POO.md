@@ -188,6 +188,9 @@ class Usuario:
  ```
 
 ### Métodos Mágicos (dunder)
+
+<img src="Imagens/Dunder.jpg" alt="Métodos Mágicos (Dunder)" width="500"/>
+
 Alguns exemplos:
 ```py
 class Garage:
@@ -197,10 +200,10 @@ class Garage:
     def __len__(self):
         return len(self.cars)
 
-    def __getitem__(self, i):
+    def __getitem__(self, i):           # define um iterável
         return self.cars[i]
 
-    def __repr__(self):                 # mais importante que o str
+    def __repr__(self):                 # usado para mostrar uma representa+ção que ajude no debug ou log de um código.
         return f'<Garage {self.cars}>'
 
     def __str__(self):
