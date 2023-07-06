@@ -22,6 +22,8 @@ CREATE TABLE nome_da_tabela (                  --Cria e nomeia a tabela
     ID INT PRIMARY KEY AUTO_INCREMENT,         --Identifica a coluna primária / Auto_increment faz a numeração ser automática
     nome_da_coluna1 VARCHAR(50) NOT NULL,      --Nomeia a coluna e define o tipo de dado, NOT NULL define que é o dado é obrigatório
     nome_da_coluna2 INTEGER UNIQUE,            --Nomeia a coluna e define o tipo de dado, UNIQUE define que o dado tem q ser único, ou seja, não pode se repetir no banco
+    nome_da_coluna3 VARCHAR(10) DEFAULT 'SP',   --Define um dado padrão para todos os objetos, pode ser forçado outro dado durante o insert
+    criação, TIMESTAMP DEFAULT CURRENT_TIMESTAMP(), --Define o dado como a data e hora correntes como padrão
 
     nome_da_FK INT,                            --Cria uma chave estrangeira
     FOREIGN KEY(nome_da_FK)                    --Identifica a chave estrangeira
@@ -278,6 +280,8 @@ DELIMITER $                         --Primeiro é necessário mudar o delimitado
 
 CREATE PROCEDURE nome_do_procedimento ()
 BEGIN
+/* escreva dentro da procedure 
+os comandos.*/                      -- Comentando em procedures em mais de uma linha
   qualquer_programação;
 END 
 $
@@ -287,6 +291,29 @@ BEGIN
   SELECT 10+10 AS conta;
 END 
 $
+
+
+CREATE PROCEDURE exemplo_procedure()
+BEGIN
+  DECLARE EXIT HANDLER FOR SQLEXCEPTION
+  BEGIN
+    -- Código a ser executado caso ocorra uma exceção
+    ROLLBACK;
+    SELECT 'Ocorreu uma exceção.';
+  END;
+
+  START TRANSACTION;
+  
+  -- Lógica da procedure
+  
+  -- Exemplo de uma operação que pode gerar uma exceção
+  INSERT INTO tabela (coluna1, coluna2) VALUES ('valor1', 'valor2');
+  
+  COMMIT;
+  
+  SELECT 'A procedure foi concluída com sucesso.';
+  
+END $
 
 CREATE PROCEDURE conta(numero1 INT, numero2 INT)
 BEGIN
@@ -299,6 +326,8 @@ CALL conta(1,1);
 CALL nome_da_procedure()$           --Chamando uma procedure
 
 DROP PROCEDURE nome_da_procedure;   --Apaga uma procedure
+
+--Para alterar uma procedure exclua e crie novamente. Pode ser feito pela interface do workbench no mySQL.
 ```
 
 ## Subqueries
@@ -315,7 +344,8 @@ WHERE nome_da_coluna > (SELECT AVG(nome_da_coluna) FROM nome_da_tabela);
 
 ## Trigger (gatilho)
 ```sql
-CREATE TRIGGER nome_da_trigger                             --Primeiro é necessário mudar o delimitador
+DELIMITER $                                                --Primeiro é necessário mudar o delimitador
+CREATE TRIGGER nome_da_trigger                             
 BEFORE/AFTER INSERT/DELETE/UPDATE ON nome_da_tabela
 FOR EACH ROW                                               --ROW = linha
 BEGIN 
